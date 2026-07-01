@@ -35,7 +35,7 @@ civillians
 	
 	attributes
 		- profession
-		- residence
+		residense
 
 
 MODULE 1 FUNCTIONALITIES:
