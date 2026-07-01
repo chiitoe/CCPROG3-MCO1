@@ -1,0 +1,55 @@
+OPUMS - One Piece Universe Management System
+
+Domain Reqs:
+
+	- Shared and Unique Traits
+	- Dynamic Profile Displays
+	- Role-Specific Duties
+	- Data Integrity and Validation
+	- Entitiy SPecificity
+
+// FOR MCO2
+Module 1 - Character Database
+Module 2 - Affiliation Database
+Module 3 - Devil Fruit Database Module
+
+// FOR MCO2
+Module 4 - Bounty System
+
+RESTRICTIONS AND RULES
+	- no libraries outside of Java21 API
+	
+	AFFILIATION AND CHARACTER:
+	- faction exclusivity - character cannot be a pirate and a marine simultaneously
+	- single group allegiance - pirate can only belong to ONE pirate crew and marine can only belong to ONE marine corps at a time
+	- command validation - pirate crew can only have ONE captain. newly assigned captains will automatically revert the old captain's status back to the standard role
+	
+	DEVIL FRUIT:
+	- a devil fruit can only have ONE current owner at a time. current owner can only reliquish the devil fruit if they are marked as "dead"
+	- when a character is pronounced "dead", the system must IMMEDIATELY execute:
+		- append dead character to fruit's historical owners list
+		- set current owner to null
+		- clear devil fruit power field on the dead character's profile
+		
+
+MILESTONES
+
+MCO1 - July 11, 2026 9PM
+	- UML class diagram
+	- implementation of all classes and methods from modules 1-3
+	- *** DATABASE AND FILE PROCESSING IS *NOT* YET REQUIRED***
+	
+MCO2 - August 3, 2026 7:30AM
+	- follow the MVC architecture
+	- final system is a gui-based program // console outputs will NOT be checked
+	- completed UML class diagram
+	- additional features may be implemented but they CANNOT contradict the requirement -- reflect these in the UML Ddiagram
+		
+DELIVERABLES
+	- signed declaration of original work
+	- softcopy of class diagram followign UML notations
+	- javadoc-generated documentation for proponent-defined classes with pertinent info
+	- zip w/ source code w/ proper internal documentation
+	- test script -- follow format in appendix B
+	- MCO1 - video demo of the program - voice-over explanation required, 10 mins max
+	
