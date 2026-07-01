@@ -1,0 +1,58 @@
+categories:
+
+pirates
+	- must be assgined to an individual bounty
+	- can only belong to ONE pirate crew
+
+	attributes
+		- bounty - current bounty in berries
+		- pirate role
+		- is captain - boolean if character is captain
+		- pirate crew - current crew the pirate belongs in
+
+	methods
+		- assign/modify bounty
+		- assign to pirate crew
+
+marines
+	- can only belong to ONE marine corps
+	
+	attributes
+		- rank - military rank
+		- marine corps - current marine unit assigned to
+
+	methods
+		- promote rank
+		- assign to marine corps
+
+pirate hunters
+
+	attributes
+		- combat style
+		- confirmed captures - total # of pirates turned over to the government
+
+civillians
+	
+	attributes
+		- profession
+		- residence
+
+
+MODULE 1 FUNCTIONALITIES:
+	- add new
+	- view
+	- modify
+	- delete
+
+PARENT ATTRIBUTES:
+	- character ID - auto-generated
+	- name
+	- alias
+	- origin
+	- status - free, captured, dead
+	- devil fruit power - blank by default
+	- wallet - in berries
+
+PARENT METHODS:
+	- DisplayProfile
+
