@@ -2,23 +2,53 @@ public class Marine extends Character {
 
     // child attributes
     private MarineRank marineRank;
-    private String marineCorps;
+    private MarineCorps marineCorps;
 
     // constructor
-    public Marine(String name, String alias, String origin, int wallet, MarineRank marineRank, String marineCorps) {
+    public Marine(String name, String alias, String origin, int wallet, MarineRank marineRank) {
         super(name, alias, origin, wallet);
 
         this.marineRank = (marineRank != null) ? marineRank:MarineRank.ENSIGN;  // starts at the bottom if a rank is not given
-        this.marineCorps = null;    // start unaffiliated to a corps
+        // marines are created with no affiliations to a corps
     }
 
-    // returns 1 if successful, 0 otherwise
+    // getters
+
+    public MarineRank getMarineRank(){
+        return this.marineRank;
+    }
+
+    public MarineCorps getMarineCorps(){
+        return this.marineCorps;
+    }
+
+    // methods
+
+    // returns true if successful, false otherwise
     public boolean promoteRank(){
+        MarineRank[] allRanks = MarineRank.values();
+        int index = this.marineRank.ordinal();      // holds the index of the current rank
 
+        // only runs when the current rank is NOT the HIGHEST rank
+        if(index < allRanks.length - 1){
+            this.marineRank = allRanks[index + 1];
+            return true;
+        }
+
+        // only runs when the current rank IS the HIGHEST rank
+        return false;
     }
 
-    public void assignCorps(String marineCorps){
+    // returns true if successful, false otherwise
+    public boolean assignCorps(MarineCorps marineCorps){
 
+        // only runs if the input is valid
+        if (marineCorps != null){
+
+        }
+
+
+        return false;
     }
 
     @Override

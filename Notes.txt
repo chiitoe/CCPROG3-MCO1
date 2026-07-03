@@ -6,7 +6,7 @@ Domain Reqs:
 	- Dynamic Profile Displays
 	- Role-Specific Duties
 	- Data Integrity and Validation
-	- Entitiy SPecificity
+	- Entitiy Specificity
 
 // FOR MCO2
 Module 1 - Character Database
