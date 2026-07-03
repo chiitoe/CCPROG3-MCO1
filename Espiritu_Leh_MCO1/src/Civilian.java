@@ -12,11 +12,32 @@ public class Civilian extends Character {
         this.residence = (residence != null && !residence.isBlank()) ? residence:"Homeless";
     }
 
+    // getters
+
+    public String getProfession(){
+        return this.profession;
+    }
+
+    public String getResidence(){
+        return this.residence;
+    }
+
+    // setters
+
+    public void setProfession(String profession){
+        if (profession != null && !profession.isBlank()){
+            this.profession = profession;
+        }
+    }
+
+    public void setResidence(String residence){
+        if (residence != null && !residence.isBlank()){
+            this.residence = residence;
+        }
+    }
+
     // incomplete !!!
     @Override
     public void performDuty() {
-        switch (this.profession){
-            case "" -> System.out.println("");
-        }
     }
 }

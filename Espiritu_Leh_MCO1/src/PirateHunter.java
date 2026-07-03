@@ -9,6 +9,28 @@ public class PirateHunter extends Character {
         super(name, alias, origin, wallet);
 
         this.combatStyle = (combatStyle != null && !combatStyle.isBlank()) ? combatStyle:"None";
+        this.confirmedCaptures = (confirmedCaptures >= 0) ? confirmedCaptures : 0;
+    }
+
+    // getters
+
+    public String getCombatStyle(){
+        return this.combatStyle;
+    }
+
+    public int getConfirmedCaptures(){
+        return this.confirmedCaptures;
+    }
+
+    // setters
+
+    public void setCombatStyle(String combatStyle){
+        if (combatStyle != null && !combatStyle.isBlank()){
+            this.combatStyle = combatStyle;
+        }
+    }
+
+    public void setConfirmedCaptures(int confirmedCaptures){
         this.confirmedCaptures = (confirmedCaptures >= 0) ? confirmedCaptures:0;
     }
 

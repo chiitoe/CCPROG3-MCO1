@@ -52,4 +52,10 @@ DELIVERABLES
 	- zip w/ source code w/ proper internal documentation
 	- test script -- follow format in appendix B
 	- MCO1 - video demo of the program - voice-over explanation required, 10 mins max
+
+
+REFERENCES:
+
+One Piece Marine Ranks
+https://onepiece.fandom.com/wiki/Marine_Ranks
 	
