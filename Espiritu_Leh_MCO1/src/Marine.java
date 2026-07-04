@@ -34,7 +34,6 @@ public class Marine extends Character {
             this.marineRank = allRanks[index + 1];
             return true;
         }
-
         // only runs when the current rank IS the HIGHEST rank
         return false;
     }
@@ -44,11 +43,14 @@ public class Marine extends Character {
 
         // only runs if the input is valid
         if (marineCorps != null){
-
+            this.marineCorps = marineCorps;
+            return true;
         }
-
-
         return false;
+    }
+
+    public void removeCorps(){
+        this.marineCorps = null;
     }
 
     @Override
