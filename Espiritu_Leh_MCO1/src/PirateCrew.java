@@ -7,15 +7,15 @@ public class PirateCrew {
     private final int crewID;
     private String crewName;
     private String shipName;
-    private String captainName;
+    private Pirate captain;
     private List<Pirate> crewMembers;
 
-    public PirateCrew(String crewName, String shipName, String captainName){
+    public PirateCrew(String crewName, String shipName, Pirate captain){
         this.crewID = autoID++;
 
         this.crewName = (crewName != null && !crewName.isBlank()) ? crewName : "Unnamed crew";
         this.shipName = (shipName != null && !shipName.isBlank()) ? shipName : "Unnamed Ship";
-        this.captainName = (captainName != null && !captainName.isBlank()) ? captainName : "Captain is unknown";
+        this.captain = captain; // a crew cannot be created without a captain -- no validity check implemented yet
 
         this.crewMembers = new ArrayList<>();
     }
@@ -27,14 +27,14 @@ public class PirateCrew {
     public void setShipName(String shipName) {
         if (shipName != null && !shipName.isBlank()) this.shipName = shipName;
     }
-    public void setCaptainName(String captainName) {
-        if (captainName != null && !captainName.isBlank()) this.captainName = captainName;
+    public void setCaptain(Pirate captain) {
+        if (captain != null) this.captain = captain;
     }
 
     public int getCrewID() { return crewID; }
     public String getCrewName() { return crewName; }
     public String getShipName() { return shipName; }
-    public String getCaptainName() { return captainName; }
+    public Pirate getCaptain() { return captain; }
     public List<Pirate> getCrewMembers() { return crewMembers; }
 
 
@@ -80,7 +80,7 @@ public class PirateCrew {
         System.out.println("=== Pirate Crew: " + crewName + " ===");
         System.out.println("Crew ID       : " + crewID);
         System.out.println("Ship's Name   : " + shipName);
-        System.out.println("Captain       : " + captainName);
+        System.out.println("Captain       : " + captain.getName());
         System.out.println("Crew Size     : " + crewMembers.size());
         System.out.println("Total Bounty  : " + getTotalBounty() + " Berries");
     }
