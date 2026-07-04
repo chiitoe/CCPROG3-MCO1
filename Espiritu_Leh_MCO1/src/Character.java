@@ -7,7 +7,7 @@ public abstract class Character {
     private String alias;
     private final String origin;
     private Status status;  // used an enum for status to prevent typos when calling
-    private String devilFruitPower;
+    private DevilFruit devilFruitPower;
     private int wallet;
 
     // constructor
@@ -54,7 +54,7 @@ public abstract class Character {
         return this.status;
     }
 
-    public String getDevilFruitPower(){
+    public DevilFruit getDevilFruitPower(){
         return this.devilFruitPower;
     }
 
@@ -79,14 +79,12 @@ public abstract class Character {
     public void setStatus(Status newStatus){
         this.status = newStatus;
 
-        if(this.status == Status.DEAD){
-            this.devilFruitPower = null;
-        }
-    }
+        if(this.status == Status.DEAD && this.devilFruitPower != null){
+            // detaches in the fruit's side
+            this.devilFruitPower.triggerReincarnation();
 
-    public void setDevilFruitPower(String devilFruit){
-        if (devilFruit != null && !devilFruit.isBlank()){
-            this.devilFruitPower = devilFruit;
+            // detaches in the character's side
+            this.devilFruitPower = null;
         }
     }
 
@@ -109,6 +107,13 @@ public abstract class Character {
         }
         else{
             return false;
+        }
+    }
+
+    // helper function for DevilFruit.assignNewOwner. to ensure validation rules are respected, do not directly call setDevilFruitPower.
+    public void setDevilFruitPower(DevilFruit devilFruit){
+        if (devilFruit != null){
+            this.devilFruitPower = devilFruit;
         }
     }
 

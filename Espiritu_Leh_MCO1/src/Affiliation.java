@@ -11,8 +11,8 @@ public class Affiliation {
     }
 
     // Create a group
-    public PirateCrew createPirateCrew(String crewName, String shipName, String captainName) {
-        PirateCrew crew = new PirateCrew(crewName, shipName, captainName);
+    public PirateCrew createPirateCrew(String crewName, String shipName, Character captain) {
+        PirateCrew crew = new PirateCrew(crewName, shipName, captain);
         pirateCrews.add(crew);
         System.out.println("Created Pirate Crew: " + crew.getCrewName());
         return crew;
