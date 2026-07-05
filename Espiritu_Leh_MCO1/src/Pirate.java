@@ -41,17 +41,30 @@ public class Pirate extends Character {
         return false;
     }
 
-    public void removeCrew(){
-        this.pirateCrew = null;
+    public void removeCrew(){this.pirateCrew = null;
     }
 
     public void setPirateRole(String newRole){
         this.pirateRole = (newRole != null && !newRole.isBlank()) ? newRole:"Unassigned";
     }
 
-    // UNFINISHED
-    public void toggleCaptain(){
-        this.pirateCrew.getCaptainName();
+    // parameter: true == become captain; false == demote from captain
+    public boolean toggleCaptain(boolean state){
+        // toggle on
+        if (this.pirateCrew != null && state == true){
+            this.isCaptain = true;
+            this.pirateRole = "Captain";
+            return true;
+        }
+
+        // toggle off
+        else if (this.pirateCrew != null && state == false){
+            this.isCaptain = false;
+            this.pirateRole = "Unassigned";
+            return true;
+        }
+
+        return false;
     }
 
     @Override

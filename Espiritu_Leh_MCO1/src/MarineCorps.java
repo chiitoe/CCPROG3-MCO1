@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class MarineCorps {
 
@@ -9,7 +8,7 @@ public class MarineCorps {
     private String baseLocation;
     private String corpsCommander;
     private int opFunds;
-    private List<Marine> members;
+    private ArrayList<Marine> members;
 
     public MarineCorps(String corpsName, String baseLocation, String corpsCommander, int opFunds){
         this.corpsID = autoID++;
@@ -39,7 +38,10 @@ public class MarineCorps {
     public String getCorpsName() { return corpsName; }
     public String getBaseLocation() { return baseLocation; }
     public String getCorpsCommander() { return corpsCommander; }
-    public List<Marine> getMembers() { return members; }
+    public ArrayList<Marine> getMembers() {
+        // creates and returns a copy of the list for data integrity
+        return new ArrayList<>(this.members);
+    }
 
     // Adding and removing members
     public boolean recruitMarine(Marine marine){

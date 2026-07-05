@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class PirateCrew {
 
@@ -8,7 +7,7 @@ public class PirateCrew {
     private String crewName;
     private String shipName;
     private Pirate captain;
-    private List<Pirate> crewMembers;
+    private ArrayList<Pirate> crewMembers;
 
     public PirateCrew(String crewName, String shipName, Pirate captain){
         this.crewID = autoID++;
@@ -27,17 +26,31 @@ public class PirateCrew {
     public void setShipName(String shipName) {
         if (shipName != null && !shipName.isBlank()) this.shipName = shipName;
     }
-    public void setCaptain(Pirate captain) {
-        if (captain != null) this.captain = captain;
+
+    // returns true if successful, false otherwise
+    public boolean setCaptain(Pirate captain) {
+        if (captain != null && captain.getPirateCrew() == this){
+            // demotes the current captain if there is one
+            if (this.captain != null){this.captain.toggleCaptain(false);}
+
+            // promotes the new captain
+            captain.toggleCaptain(true);
+
+            // sets new captain in this object
+            this.captain = captain;
+            return true;
+        }
+        return false;
     }
 
     public int getCrewID() { return crewID; }
     public String getCrewName() { return crewName; }
     public String getShipName() { return shipName; }
     public Pirate getCaptain() { return captain; }
-    public List<Pirate> getCrewMembers() { return crewMembers; }
-
-
+    public ArrayList<Pirate> getCrewMembers() {
+        // creates and returns a copy of the list for data integrity
+        return new ArrayList<>(this.crewMembers);
+    }
 
     // Adding and removing members
     public boolean recruitMember(Pirate pirate){

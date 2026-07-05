@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Affiliation {
-    private List<PirateCrew> pirateCrews;
-    private List<MarineCorps> marineCorps;
+    private final ArrayList<PirateCrew> pirateCrews;
+    private final ArrayList<MarineCorps> marineCorps;
 
     public Affiliation(){
         pirateCrews = new ArrayList<>();
@@ -11,7 +10,7 @@ public class Affiliation {
     }
 
     // Create a group
-    public PirateCrew createPirateCrew(String crewName, String shipName, Character captain) {
+    public PirateCrew createPirateCrew(String crewName, String shipName, Pirate captain) {
         PirateCrew crew = new PirateCrew(crewName, shipName, captain);
         pirateCrews.add(crew);
         System.out.println("Created Pirate Crew: " + crew.getCrewName());
@@ -36,8 +35,15 @@ public class Affiliation {
             System.out.println("- [" + m.getCorpsID() + "] " + m.getCorpsName());
         }
     }
-    public List<PirateCrew> getPirateCrews() { return pirateCrews; }
-    public List<MarineCorps> getMarineCorpsUnits() { return marineCorps; }
+    public ArrayList<PirateCrew> getPirateCrews() {
+        // creates and returns a copy of the list for data integrity
+        return new ArrayList<>(this.pirateCrews);
+    }
+
+    public ArrayList<MarineCorps> getMarineCorpsUnits() {
+        // creates and returns a copy of the list for data integrity
+        return new ArrayList<>(this.marineCorps);
+    }
 
     public PirateCrew findPirateCrewById(int id) {
         for (PirateCrew c : pirateCrews) {
