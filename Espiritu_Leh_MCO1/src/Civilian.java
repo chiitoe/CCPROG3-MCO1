@@ -36,8 +36,22 @@ public class Civilian extends Character {
         }
     }
 
-    // incomplete !!!
     @Override
     public void performDuty() {
+        switch(this.profession){
+            case "Unemployed" -> System.out.println("Enjoying my day to day...");
+            case "Shipwright" -> System.out.println("Building and repairing ships...");
+            case "Bartender" -> System.out.println("Serving drinks at the local tavern...");
+            case "Scholar" -> System.out.println("Studying the world's history and lore...");
+            case "Merchant" -> System.out.println("Buying and selling goods at the market...");
+            case "Fisherman" -> System.out.println("Casting nets and reeling in catch...");
+            case "Blacksmith" -> System.out.println("Forging tools and weapons...");
+            case "Farmer" -> System.out.println("Tending to the crops...");
+            case "Hunter" -> System.out.println("Chasing through the forests and fields...");
+            case "Doctor" -> System.out.println("Treating the sick and injured...");
+            case "Innkeeper" -> System.out.println("Managing the local inn...");
+            case "Tailor" -> System.out.println("Mending and making clothes...");
+            default -> System.out.println("Working as the town's " + this.profession + "...");
+        }
     }
 }

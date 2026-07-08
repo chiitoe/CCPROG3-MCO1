@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
-public class Affiliation {
+public class AffiliationDatabase {
     private final ArrayList<PirateCrew> pirateCrews;
     private final ArrayList<MarineCorps> marineCorps;
 
-    public Affiliation(){
+    public AffiliationDatabase(){
         pirateCrews = new ArrayList<>();
         marineCorps = new ArrayList<>();
     }

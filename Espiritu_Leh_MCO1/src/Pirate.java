@@ -69,6 +69,15 @@ public class Pirate extends Character {
 
     @Override
     public void performDuty() {
-
+        switch(this.pirateRole){
+            case "Unassigned" -> System.out.println("On standby for orders...");
+            case "Captain" -> System.out.println("Giving orders and steering the crew's course...");
+            case "Navigator" -> System.out.println("Charting a course across the sea...");
+            case "Cook" -> System.out.println("Cooking up he-ARRR-ty meals...");
+            case "Doctor" -> System.out.println("Tending to wounds...");
+            case "Shipwright" -> System.out.println("Maintaining the ship...");
+            case "Janitor" -> System.out.println("Keeping things squeaky clean...");
+            default -> System.out.println("Performing my " + this.pirateRole + " duties...");
+        }
     }
 }

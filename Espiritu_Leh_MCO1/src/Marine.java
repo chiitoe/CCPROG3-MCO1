@@ -55,6 +55,17 @@ public class Marine extends Character {
 
     @Override
     public void performDuty() {
-
+        switch (this.marineRank){
+            case ENSIGN -> System.out.println("Following a superior's orders...");
+            case LIEUTENANT -> System.out.println("Fulfilling my duties...");
+            case COMMANDER -> System.out.println("Overseeing low-rank officers...");
+            case CAPTAIN -> System.out.println("Commanding a marine branch to capture pirates...");
+            case COMMODORE -> System.out.println("Taking on authoritative duties...");
+            case REAR_ADMIRAL -> System.out.println("Commanding low-ranked marines...");
+            case VICE_ADMIRAL -> System.out.println("Leading a Buster Call fleet...");
+            case ADMIRAL -> System.out.println("Serving as one of the Marine's three greatest powers...");
+            case FLEET_ADMIRAL -> System.out.println("Overseeing marine operations...");
+            default -> System.out.println("Patrolling the seas...");
+        }
     }
 }
