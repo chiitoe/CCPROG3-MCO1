@@ -1,0 +1,217 @@
+Character{abstract/italics}
+-------------
+- autoID: int{static/underline}
+- characterID: int{readOnly}
+- name: String
+- alias: String
+- origin: String{readOnly}
+- status: Status
+- devilFruitPower: DevilFruit
+- wallet: int
+-------------
+# Character(name:String, alias:String, origin:String, wallet:int)
+
+// getters
++ getCharacterID(): int
++ getName(): String
++ getAlias(): String
++ getOrigin(): String
++ getStatus(): Status
++ getDevilFruitPower(): DevilFruit
++ getWallet(): int
+
+// setters
++ setName(newName:String): void
++ setAlias(newAlias:String):void
++ setStatus(newStatus:Status):void
+
+// methods
++ displayProfile(): void
++ addWallet(amount:int):boolean
++ deductWallet(amount:int):Boolean
++ setDevilFruitPower(devilFruit:Devilfruit):void
+
+// helper methods
++ performDuty():void{abstract/italics}
++ hasEnoughMoney(amount:int):boolean
++ hasDevilFruit():boolean
+
+=====================================================================================
+
+Civilian
+-------------
+- profession: String
+- residence: String
+-------------
++ Civilian(name:String, alias:String, origin:String, wallet:int, profession:String, residence:String)
+
+// getters
++ getProfession(): String
++ getResidence(): String
+
+// setters
++ setProfession(profession:String):void
++ setResidence(residence:String):void
+
+// methods
++ performDuty():void
+
+=====================================================================================
+
+Marine
+-------------
+- marineRank: MarineRank
+- marineCorps: MarineCorps
+-------------
++ Marine(name:String, alias:String, origin:String, wallet:int, marineRank:MarineRank)
+
+// getters
++ getMarineRank(): MarineRank
++ getMarineCorps():MarineCorps
+
+// methods
++ promoteRank(): boolean
++ assignCorps(marineCorps:MarineCorps): boolean
++ removeCorps(): void
++ performDuty(): void
+
+=====================================================================================
+
+Pirate
+-------------
+- bounty: int
+- pirateRole: String
+- isCaptain: boolean
+- pirateCrew: PirateCrew
+-------------
++ Pirate(name:String, alias:String, origin:String, wallet:int, bounty:int, pirateRole:String)
+
+// getters
++ getBounty(): int
++ getPirateCrew(): PirateCrew
++ getPirateRole(): String
++ isCaptain(): boolean
+
+// setters
++ setBounty(bounty:int): void
++ assignCrew(pirateCrew:PirateCrew): boolean
++ removeCrew(): void
++ setPirateRole(newRole:String): void
++ toggleCaptain(state:boolean): boolean
++ performDuty(): void
+
+=====================================================================================
+
+PirateHunter
+-------------
+- combatStyle: String
+- confirmedCaptures: int
+-------------
++ PirateHunter(name:String, alias:String, origin:String, wallet:int, combatStyle:String, confirmedCaptures:int)
+
+// getters
++ getCombatStyle(): String
++ getConfirmedCaptures(): int
+
+// setters
++ setCombatStyle(combatStyle:String): void
++ setConfirmedCaptures(confirmedCaptures:int): void
++ performDuty(): void
+
+=====================================================================================
+
+MarineCorps
+-------------
+- autoID: int{static/underline}
+- corpsID: int{readOnly}
+- corpsName: String
+- baseLocation: String
+- corpsCommander: String
+- opFunds: int
+- members: ArrayList<Marine>
+-------------
++ MarineCorps(corpsName:String, baseLocation:String, corpsCommander:String, opFunds:int)
+
+// getters
++ getCorpsID(): int
++ getCorpsName(): String
++ getBaseLocation(): String
++ getCorpsCommander(): String
++ getMembers(): ArrayList<Marine>
+
+// setters
++ setCorpsName(corpsName:String): void
++ setBaseLocation(baseLocation:String): void
++ setCorpsCommander(corpsCommander:String): void
++ setOpFunds(opFunds:int): void
+
+// methods
++ recruitMarine(marine:Marine): boolean
++ goodbyeMember(marine:Marine): boolean
++ viewMembers(): void
++ displayMarineInfo(): void
+
+=====================================================================================
+
+PirateCrew
+-------------
+
+-------------
+
+=====================================================================================
+
+DevilFruit
+-------------
+-------------
+
+=====================================================================================
+
+CharacterDatabase
+-------------
+-------------
+
+=====================================================================================
+
+DevilFruitDatabase
+-------------
+-------------
+
+=====================================================================================
+
+AffiliationDatabase
+-------------
+-------------
+
+=====================================================================================
+
+<enumeration>
+Status
+-------------
+FREE
+CAPTURED
+DEAD
+
+=====================================================================================
+
+<enumeration>
+MarineRank
+-------------
+ENSIGN
+LIEUTENANT
+COMMANDER
+CAPTAIN
+COMMODORE
+REAR_ADMIRAL
+VICE_ADMIRAL
+ADMIRAL
+FLEET_ADMIRAL
+
+=====================================================================================
+
+<enumeration>
+Category
+-------------
+PARAMECIA
+ZOAN
+LOGIA
+UNDETERMINED

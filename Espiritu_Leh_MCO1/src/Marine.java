@@ -13,11 +13,9 @@ public class Marine extends Character {
     }
 
     // getters
-
     public MarineRank getMarineRank(){
         return this.marineRank;
     }
-
     public MarineCorps getMarineCorps(){
         return this.marineCorps;
     }

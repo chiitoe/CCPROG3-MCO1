@@ -13,11 +13,9 @@ public class PirateHunter extends Character {
     }
 
     // getters
-
     public String getCombatStyle(){
         return this.combatStyle;
     }
-
     public int getConfirmedCaptures(){
         return this.confirmedCaptures;
     }
