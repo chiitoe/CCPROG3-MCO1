@@ -1,0 +1,297 @@
+Character{abstract/italics}
+-------------
+- autoID : int = 1 {static/underline}
+- characterID : int{readOnly}
+- name : String
+- alias : String
+- origin : String{readOnly}
+- status : Status
+- devilFruitPower : DevilFruit
+- wallet : int
+-------------
+# Character(name : String, alias : String, origin : String, wallet : int)
+
+// getters
++ getCharacterID() : int
++ getName() : String
++ getAlias() : String
++ getOrigin() : String
++ getStatus() : Status
++ getDevilFruitPower() : DevilFruit
++ getWallet() : int
+
+// setters
++ setName(newName : String) : void
++ setAlias(newAlias : String) : void
++ setStatus(newStatus : Status) :void
+
+// methods
++ displayProfile() : void
++ addWallet(amount : int) : boolean
++ deductWallet(amount : int) : boolean
++ setDevilFruitPower(devilFruit : DevilFruit) : void
+
+// helper methods
++ performDuty() : void {abstract/italics}
++ hasEnoughMoney(amount : int) : boolean
++ hasDevilFruit() : boolean
+
+=====================================================================================
+
+Civilian
+-------------
+- profession : String
+- residence : String
+-------------
++ Civilian(name : String, alias : String, origin : String, wallet : int, profession : String, residence : String)
+
+// getters
++ getProfession() : String
++ getResidence() : String
+
+// setters
++ setProfession(profession : String) : void
++ setResidence(residence : String) : void
+
+// methods
++ performDuty() : void
+
+=====================================================================================
+
+Marine
+-------------
+- marineRank : MarineRank
+- marineCorps : MarineCorps
+-------------
++ Marine(name : String, alias : String, origin : String, wallet : int, marineRank : MarineRank)
+
+// getters
++ getMarineRank() : MarineRank
++ getMarineCorps() : MarineCorps
+
+// methods
++ promoteRank() : boolean
++ assignCorps(marineCorps : MarineCorps) : boolean
++ removeCorps() : void
++ performDuty() : void
+
+=====================================================================================
+
+Pirate
+-------------
+- bounty : int
+- pirateRole : String
+- isCaptain : boolean
+- pirateCrew : PirateCrew
+-------------
++ Pirate(name : String, alias : String, origin : String, wallet : int, bounty : int, pirateRole : String)
+
+// getters
++ getBounty() : int
++ getPirateCrew() : PirateCrew
++ getPirateRole() : String
+
+// setters
++ setBounty(bounty : int) : void
++ setPirateRole(newRole : String) : void
+
+// methods
++ isCaptain() : boolean
++ toggleCaptain(state : boolean) : boolean
++ assignCrew(pirateCrew : PirateCrew) : boolean
++ removeCrew() : void
++ performDuty() : void
+
+=====================================================================================
+
+PirateHunter
+-------------
+- combatStyle : String
+- confirmedCaptures : int
+-------------
++ PirateHunter(name : String, alias : String, origin : String, wallet : int, combatStyle : String, confirmedCaptures : int)
+
+// getters
++ getCombatStyle() : String
++ getConfirmedCaptures() : int
+
+// setters
++ setCombatStyle(combatStyle : String) : void
++ setConfirmedCaptures(confirmedCaptures : int) : void
++ performDuty() : void
+
+=====================================================================================
+
+MarineCorps
+-------------
+- autoID : int = 1 {static/underline}
+- corpsID: int {readOnly}
+- corpsName : String
+- baseLocation : String
+- corpsCommander : String
+- opFunds : int
+- members : ArrayList<Marine>
+-------------
++ MarineCorps(corpsName : String, baseLocation : String, corpsCommander : String, opFunds : int)
+
+// getters
++ getCorpsID() : int
++ getCorpsName() : String
++ getBaseLocation() : String
++ getCorpsCommander() : String
++ getMembers() : ArrayList<Marine>
+
+// setters
++ setCorpsName(corpsName : String) : void
++ setBaseLocation(baseLocation : String) : void
++ setCorpsCommander(corpsCommander : String) : void
++ setOpFunds(opFunds : int) : void
+
+// methods
++ recruitMarine(marine : Marine) : boolean
++ goodbyeMember(marine : Marine) : boolean
++ viewMembers() : void
++ displayMarineInfo() : void
+
+=====================================================================================
+
+PirateCrew
+-------------
+- autoID : int = 1 {static/underline}
+- crewID : int {readOnly/final}
+- crewName : String
+- shipName : String
+- captain : Pirate
+- crewMembers : ArrayList<Pirate>
+-------------
++ PirateCrew(crewName : String, shipName : String, captain : Pirate)
+
+// setters
++ setCrewName(crewName : String) : void
++ setShipName(shipName : String) : void
++ setCaptain(captain : Pirate) : boolean
+
+// getters
++ getCrewID() : int
++ getCrewName() : String
++ getShipName() : String
++ getCaptain() : Pirate
++ getCrewMembers() : ArrayList<Pirate>
+
+// methods
++ recruitMember(pirate : Pirate) : boolean
++ goodbyeMember(pirate : Pirate) : boolean
++ getTotalBounty() : int
++ viewCrew() : void
++ displayPirateInfo() : void
+
+=====================================================================================
+
+DevilFruit
+-------------
+- autoID : int = 1 {static/underline}
+- fruitID : int
+- fruitName : String
+- category : Category
+- primaryAbility : String
+- currentOwner : Character
+- historicalOwners : ArrayList<Character>
+-------------
++ DevilFruit(fruitName : String, category : Category, primaryAbility : String)
++ displayFruit() : void
+
+// getters
++ getFruitID() : int
++ getFruitName() : String
++ getCategory() : Category
++ getPrimaryAbility() : String
++ getCurrentOwner() : Character
++ getHistoricalOwners() : ArrayList<Character>
+
+// methods
++ assignNewOwner(newOwner : Character) : boolean
++ triggerReincarnation() : void
+
+=====================================================================================
+
+CharacterDatabase
+-------------
+- characters : ArrayList<Character> {readOnly/final}
+-------------
++ CharacterDatabase()
+
+// methods
++ createPirate(name : String, alias : String, origin : String, wallet : int, bounty : int, pirateRole : String) : Pirate
++ createMarine(name : String, alias : String, origin : String, wallet : int, marineRank : MarineRank) : Marine
++ createPirateHunter(name : String, alias : String, origin : String, wallet : int, combatStyle : String, confirmedCaptures : int) : PirateHunter
++ createCivilian(name : String, alias : String, origin : String, wallet : int, profession : String, residence : String) : Civilian
++ deleteCharacter(id : int) : boolean
++ displayAllCharacters() : void
++ findCharacterByID(id : int) : Character
+
+
+=====================================================================================
+
+DevilFruitDatabase
+-------------
+- devilFruits : ArrayList<DevilFruit> <readOnly/final>
+-------------
++ DevilFruitDatabase()
++ createDevilFruit(fruitName : String, category : Category, primaryAbility : String) : DevilFruit
++ viewAllFruits() : void
++ findFruitByID(id : int) : DevilFruit
++ getDevilFruits() : ArrayList<DevilFruit>
+
+=====================================================================================
+
+AffiliationDatabase
+-------------
+- pirateCrews : ArrayList<PirateCrew> {readOnly/final}
+- marineCorps : ArrayList<MarineCorps> {readOnly/final}
+-------------
++ AffiliationDatabase()
+
+// methods
++ createPirateCrew(crewName : String, shipName : String, captain : Pirate) : PirateCrew
++ createMarineCorps(corpsName : String, baseLocation : String, corpsCommander : String, operationalFunds : int) : MarineCorps
++ viewGroups() : void
+
+// getters
++ getPirateCrews() : ArrayList<PirateCrew>
++ getMarineCorpsUnits() : ArrayList<MarineCorps>
++ findPirateCrewById(id : int) : PirateCrew
++ findMarineCorpsById(id : int) : MarineCorps
+
+=====================================================================================
+
+<enumeration>
+Status
+-------------
+FREE
+CAPTURED
+DEAD
+
+=====================================================================================
+
+<enumeration>
+MarineRank
+-------------
+ENSIGN
+LIEUTENANT
+COMMANDER
+CAPTAIN
+COMMODORE
+REAR_ADMIRAL
+VICE_ADMIRAL
+ADMIRAL
+FLEET_ADMIRAL
+
+=====================================================================================
+
+<enumeration>
+Category
+-------------
+PARAMECIA
+ZOAN
+LOGIA
+UNDETERMINED
