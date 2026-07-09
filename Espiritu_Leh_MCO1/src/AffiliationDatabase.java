@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+// Module 2 - This manages every Pirate Crew or Marine Corp. 
+
 public class AffiliationDatabase {
     private final ArrayList<PirateCrew> pirateCrews;
     private final ArrayList<MarineCorps> marineCorps;
@@ -9,14 +11,14 @@ public class AffiliationDatabase {
         marineCorps = new ArrayList<>();
     }
 
-    // Create a group
+    // This method creates the Pirate Crew using the PirateCrew class
     public PirateCrew createPirateCrew(String crewName, String shipName, Pirate captain) {
         PirateCrew crew = new PirateCrew(crewName, shipName, captain);
         pirateCrews.add(crew);
         System.out.println("Created Pirate Crew: " + crew.getCrewName());
         return crew;
     }
-
+    // This method creates the Marine Corp from the Marine Corps class
     public MarineCorps createMarineCorps(String corpsName, String baseLocation, String corpsCommander, int operationalFunds) {
         MarineCorps corps = new MarineCorps(corpsName, baseLocation, corpsCommander, operationalFunds);
         marineCorps.add(corps);
@@ -24,7 +26,7 @@ public class AffiliationDatabase {
         return corps;
     }
 
-    // View Groups
+    // This method uses the getID methods from the Pirate Crew and Marine Corp classes
     public void viewGroups() {
         System.out.println("=== Pirate Crews ===");
         for (PirateCrew c : pirateCrews) {
@@ -36,12 +38,12 @@ public class AffiliationDatabase {
         }
     }
     public ArrayList<PirateCrew> getPirateCrews() {
-        // creates and returns a copy of the list for data integrity
+        // Creates and returns a copy of the list
         return new ArrayList<>(this.pirateCrews);
     }
 
     public ArrayList<MarineCorps> getMarineCorpsUnits() {
-        // creates and returns a copy of the list for data integrity
+        // Creates and returns a copy of the list
         return new ArrayList<>(this.marineCorps);
     }
 
