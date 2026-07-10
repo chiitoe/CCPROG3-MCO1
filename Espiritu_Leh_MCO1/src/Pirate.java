@@ -1,4 +1,4 @@
-public class Pirate extends Character {
+public class Pirate extends Character { // Pirate Class derived from Character Class
 
     // Child attributes
     private int bounty;
@@ -6,7 +6,11 @@ public class Pirate extends Character {
     private boolean isCaptain;
     private PirateCrew pirateCrew;
 
-    // Constructor
+    /* CONSTRUCTOR
+        Purpose: Creates a civilian.
+        @ profession: Becomes "Unemployed" if null/blank.
+        @ residence: Becomes "Homeless" if null/blank.
+    */
     public Pirate(String name, String alias, String origin, int wallet, int bounty, String pirateRole) {
         super(name, alias, origin, wallet);
 
@@ -32,7 +36,6 @@ public class Pirate extends Character {
             this.bounty = bounty;
         }
     }
-
     public boolean assignCrew(PirateCrew pirateCrew){
         if(pirateCrew != null){
             this.pirateCrew = pirateCrew;
@@ -41,23 +44,22 @@ public class Pirate extends Character {
         return false;
     }
 
-    public void removeCrew(){this.pirateCrew = null;
-    }
+    public void removeCrew(){ this.pirateCrew = null; }
 
     public void setPirateRole(String newRole){
         this.pirateRole = (newRole != null && !newRole.isBlank()) ? newRole:"Unassigned";
     }
 
-    // parameter: true == become captain; false == demote from captain
+    // Parameter: true == become captain; false == demote from captain
     public boolean toggleCaptain(boolean state){
-        // toggle on
+        // Toggle on
         if (this.pirateCrew != null && state == true){
             this.isCaptain = true;
             this.pirateRole = "Captain";
             return true;
         }
 
-        // toggle off
+        // Toggle off
         else if (this.pirateCrew != null && state == false){
             this.isCaptain = false;
             this.pirateRole = "Unassigned";
@@ -70,13 +72,12 @@ public class Pirate extends Character {
     @Override
     public void performDuty() {
         switch(this.pirateRole){
-            case "Unassigned" -> System.out.println("On standby for orders...");
-            case "Captain" -> System.out.println("Giving orders and steering the crew's course...");
-            case "Navigator" -> System.out.println("Charting a course across the sea...");
-            case "Cook" -> System.out.println("Cooking up he-ARRR-ty meals...");
-            case "Doctor" -> System.out.println("Tending to wounds...");
-            case "Shipwright" -> System.out.println("Maintaining the ship...");
-            case "Janitor" -> System.out.println("Keeping things squeaky clean...");
+            case "Unassigned" -> System.out.println("I AM READY!");
+            case "Captain" -> System.out.println("LET'S GET THIS SHIP SAILING!");
+            case "Navigator" -> System.out.println("ONWARDS TO THE LAND!");
+            case "Cook" -> System.out.println("MMMMM! THIS IS DELICIOUS!");
+            case "Doctor" -> System.out.println("WHO NEEDS HEALING?");
+            case "Janitor" -> System.out.println("THIS PLACE NEEDS CLEANING.");
             default -> System.out.println("Performing my " + this.pirateRole + " duties...");
         }
     }
