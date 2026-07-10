@@ -1,16 +1,20 @@
 public abstract class Character {
-
-    private static int autoID = 1;  // auto-generated id
+    
+    private static int autoID = 1;  // Auto-generated id
 
     private final int characterID;
     private String name;
     private String alias;
     private final String origin;
-    private Status status;  // used an enum for status to prevent typos when calling
+    private Status status;  // Used an enum for status to prevent typos when calling
     private DevilFruit devilFruitPower;
     private int wallet;
 
-    // constructor
+   /* CONSTRUCTOR
+        Purpose: Creates a character with an auto-generated ID.
+        // name, alias, origin: fall back to "Unknown" if null/blank.
+        // wallet: falls back to 0 if negative value.
+    */
     protected Character(String name, String alias, String origin, int wallet){
         this.characterID = autoID++;        // returns value THEN increments - first character will have ID 1
         this.name = (name != null && !name.isBlank()) ? name:"Unknown";
@@ -21,6 +25,7 @@ public abstract class Character {
         this.wallet = (wallet >= 0) ? wallet:0;
     }
 
+    // Prints the character profile
     public void displayProfile(){
         System.out.println("=================================================="); //  50
         System.out.println("ID              : " + this.characterID);
@@ -32,64 +37,38 @@ public abstract class Character {
         System.out.println("Wallet          : " + this.wallet + " Berries");
     }
 
-    // GETTERS
-
-    public int getCharacterID(){
-        return this.characterID;
-    }
-
-    public String getName(){
-        return this.name;
-    }
-
-    public String getAlias(){
-        return this.alias;
-    }
-
-    public String getOrigin(){
-        return this.origin;
-    }
-
-    public Status getStatus(){
-        return this.status;
-    }
-
-    public DevilFruit getDevilFruitPower(){
-        return this.devilFruitPower;
-    }
-
-    public int getWallet(){
-        return this.wallet;
-    }
+    // Getters
+    public int getCharacterID(){ return this.characterID;}
+    public String getName(){ return this.name; }
+    public String getAlias(){ return this.alias; }
+    public String getOrigin(){ return this.origin; }
+    public Status getStatus(){ return this.status; }
+    public DevilFruit getDevilFruitPower(){ return this.devilFruitPower; }
+    public int getWallet(){ return this.wallet; }
 
     // SETTERS
-
     public void setName(String newName){
         if(newName != null && !newName.isBlank()){
             this.name = newName;
         }
     }
-
     public void setAlias(String newAlias){
         if(newAlias != null && !newAlias.isBlank()){
             this.alias = newAlias;
         }
     }
-
     public void setStatus(Status newStatus){
         this.status = newStatus;
 
         if(this.status == Status.DEAD && this.devilFruitPower != null){
-            // detaches in the fruit's side
+            // Detaches in the fruit's side
             this.devilFruitPower.triggerReincarnation();
-
-            // detaches in the character's side
+            // Detaches in the character's side
             this.devilFruitPower = null;
         }
     }
 
-    // wallet modifiers are divided into two for ease of use. since these actions have potential of failing due to misinput, the methods return boolean values to indicate a success or failure.
-
+    // Adding money to wallet
     public boolean addWallet(int amount){
         if(amount > 0) {
             this.wallet += amount;
@@ -99,7 +78,7 @@ public abstract class Character {
             return false;
         }
     }
-
+    // Deducting money from wallet
     public boolean deductWallet(int amount){
         if (hasEnoughMoney(amount)){
             this.wallet -= amount;
@@ -109,23 +88,29 @@ public abstract class Character {
             return false;
         }
     }
-
-    // helper function for DevilFruit.assignNewOwner. to ensure validation rules are respected, do not directly call setDevilFruitPower.
+    
+    /* HELPER METHOD
+        // Ensures validation rules in contact with DevilFruit.assignNewOwner.
+    */
     public void setDevilFruitPower(DevilFruit devilFruit){
         if (devilFruit != null){
             this.devilFruitPower = devilFruit;
         }
     }
 
-    // HELPER FUNCTIONS
-
+    /* HELPER METHODS
+        // Sub-class behavior for a character type
+        // Wallet balance
+        // Devil Fruit Power
+    */
     public abstract void performDuty();
-
     public boolean hasEnoughMoney(int amount){
         return this.wallet >= amount;
     }
-
     public boolean hasDevilFruit(){
         return devilFruitPower != null;
     }
 }
+
+
+
