@@ -1,15 +1,18 @@
-public class Marine extends Character {
+public class Marine extends Character { // Marine class derived from Character class
 
-    // child attributes
+    // Child Attributes
     private MarineRank marineRank;
     private MarineCorps marineCorps;
 
-    // constructor
+    /* CONSTRUCTOR
+        Purpose: Creates a member of the Marine Corp.
+        @ marineRank: Assigns the rank.
+    */
     public Marine(String name, String alias, String origin, int wallet, MarineRank marineRank) {
         super(name, alias, origin, wallet);
 
-        this.marineRank = (marineRank != null) ? marineRank:MarineRank.ENSIGN;  // starts at the bottom if a rank is not given
-        // marines are created with no affiliations to a corps
+        this.marineRank = (marineRank != null) ? marineRank:MarineRank.ENSIGN;  // Starts at the bottom if a rank is not given
+        // Marines are created with no affiliations to a corps
     }
 
     // getters
@@ -20,23 +23,27 @@ public class Marine extends Character {
         return this.marineCorps;
     }
 
-    // methods
-
-    // returns true if successful, false otherwise
+    /* HELPER METHOD
+        Purpose: Rank promotion for the marine corp
+        Returns: True if successful, false if not
+    */
     public boolean promoteRank(){
         MarineRank[] allRanks = MarineRank.values();
-        int index = this.marineRank.ordinal();      // holds the index of the current rank
+        int index = this.marineRank.ordinal();      // Holds the index of the current rank
 
-        // only runs when the current rank is NOT the HIGHEST rank
+        // Only runs when the current rank is NOT the HIGHEST rank
         if(index < allRanks.length - 1){
             this.marineRank = allRanks[index + 1];
             return true;
         }
-        // only runs when the current rank IS the HIGHEST rank
         return false;
     }
 
-    // returns true if successful, false otherwise
+    /* HELPER METHOD
+        Purpose: Assigns you as member.
+        Returns: True if successful, false if not
+        @ marineCorps: Not assigned a member if null
+    */
     public boolean assignCorps(MarineCorps marineCorps){
 
         // only runs if the input is valid
@@ -47,6 +54,7 @@ public class Marine extends Character {
         return false;
     }
 
+    // Basically removes you as a member
     public void removeCorps(){
         this.marineCorps = null;
     }
