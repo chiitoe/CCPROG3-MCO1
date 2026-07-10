@@ -31,6 +31,7 @@ public class PirateHunter extends Character {
         this.confirmedCaptures = (confirmedCaptures >= 0) ? confirmedCaptures:0;
     }
 
+    // Switch case according to Pirate Hunter type
     @Override
     public void performDuty() {
         switch(this.combatStyle){
