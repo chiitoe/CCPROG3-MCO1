@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class DevilFruit {
 
-    private static int autoID = 1;  // auto-generated id
+    private static int autoID = 1;  // Auto-generated id
 
-    // attributes
+    // Attributes
     private int fruitID;
     private String fruitName;
     private Category category;
@@ -12,7 +12,10 @@ public class DevilFruit {
     private Character currentOwner;
     private ArrayList<Character> historicalOwners;
 
-    // constructor
+    /* CONSTRUCTOR
+        Purpose: creates a new devil fruit with a generated ID.
+        @ fruitName, category, primaryAbility: fall back to defaults if null/blank.
+    */
     public DevilFruit(String fruitName, Category category, String primaryAbility){
         this.fruitID = autoID++;
         this.fruitName = (fruitName != null && !fruitName.isBlank()) ? fruitName : "Unknown";
@@ -22,6 +25,7 @@ public class DevilFruit {
         this.historicalOwners = new java.util.ArrayList<>();
     }
 
+    // Prints the profile of the devil fruit
     public void displayFruit(){
         System.out.println("=================================================="); //  50
         System.out.println("ID              : " + this.fruitID);
@@ -41,46 +45,28 @@ public class DevilFruit {
         }
     }
 
-    // getters
-
-    public int getFruitID(){
-        return this.fruitID;
-    }
-
-    public String getFruitName(){
-        return this.fruitName;
-    }
-
-    public Category getCategory(){
-        return this.category;
-    }
-
-    public String getPrimaryAbility(){
-        return this.primaryAbility;
-    }
-
-    public Character getCurrentOwner(){
-        return this.currentOwner;
-    }
-
+    // Getters
+    public int getFruitID(){ return this.fruitID; }
+    public String getFruitName(){ return this.fruitName; }
+    public Category getCategory(){ return this.category; }
+    public String getPrimaryAbility(){ return this.primaryAbility; }
+    public Character getCurrentOwner(){ return this.currentOwner; }
     public ArrayList<Character> getHistoricalOwners(){
-        // creates and returns a new arrayList to retain immutability
+        // Creates and returns a new arrayList to retain immutability
         return new ArrayList<>(this.historicalOwners);
     }
 
-    // no setters are implemented since the information each fruit has typically should not change after creation.
-
-    // returns true if successful, and false otherwise
+    /* HELPER METHOD
+        // Assigns a new devil fruit owner
+        // Only runs if:
+            the fruit has no current owner
+            the new owner is NOT dead
+            the new owner does not yet have a devil fruit
+    */
     public boolean assignNewOwner(Character newOwner) {
-        /* only runs if:
-                the fruit has no current owner
-                the new owner is NOT dead
-                the new owner does not yet have a devil fruit
-        */
-
         if (currentOwner == null && newOwner != null && newOwner.getStatus() != Status.DEAD && !newOwner.hasDevilFruit()) {
             this.currentOwner = newOwner;
-            newOwner.setDevilFruitPower(this); // passes the current fruit object so the character's devilFruitPower field points back to this fruit
+            newOwner.setDevilFruitPower(this); // Psses the current fruit object so the character's devilFruitPower field points back to this fruit
             return true;
         }
 
@@ -88,10 +74,9 @@ public class DevilFruit {
     }
 
     public void triggerReincarnation(){
-        // adds the current owner as a new entry in the fruit's historical owners list.
+        // Adds the current owner as a new entry in the fruit's historical owners list.
         this.historicalOwners.add(this.currentOwner);
-
-        // detaches the fruit's side of the connection
+        // Detaches the fruit's side of the connection
         this.currentOwner = null;
     }
 }
