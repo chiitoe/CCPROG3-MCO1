@@ -11,7 +11,7 @@ public class DevilFruitDatabase {
     }
 
     /* HELPER METHOD
-        // Creates a new DevilFruit and returns it.
+        // Creates and registers a new DevilFruit and returns it.
     */
     public DevilFruit createDevilFruit(String fruitName, Category category, String primaryAbility) {
         DevilFruit fruit = new DevilFruit(fruitName, category, primaryAbility);
