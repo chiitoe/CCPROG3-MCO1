@@ -1,3 +1,4 @@
+// Module 1 setups what is needed for other child classes
 public abstract class Character {
     
     private static int autoID = 1;  // Auto-generated id
