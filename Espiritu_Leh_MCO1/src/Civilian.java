@@ -1,10 +1,15 @@
+// Module 1 setups a character not affiliated with Pirate Crew or Marine Corps
 public class Civilian extends Character {
 
-    // child attributes
+    // Child attributes
     private String profession;
     private String residence;
 
-    // constructor
+    /* CONSTRUCTOR
+        Purpose: Creates a civilian.
+        @ profession: Falls back to "Unemployed" if null/blank.
+        @ residence: Falls back to "Homeless" if null/blank.
+    */
     public Civilian(String name, String alias, String origin, int wallet, String profession, String residence) {
         super(name, alias, origin, wallet);
 
@@ -12,30 +17,23 @@ public class Civilian extends Character {
         this.residence = (residence != null && !residence.isBlank()) ? residence:"Homeless";
     }
 
-    // getters
+    // Getters
+    public String getProfession(){ return this.profession; }
+    public String getResidence(){ return this.residence; }
 
-    public String getProfession(){
-        return this.profession;
-    }
-
-    public String getResidence(){
-        return this.residence;
-    }
-
-    // setters
-
+    // Setters
     public void setProfession(String profession){
         if (profession != null && !profession.isBlank()){
             this.profession = profession;
         }
     }
-
     public void setResidence(String residence){
         if (residence != null && !residence.isBlank()){
             this.residence = residence;
         }
     }
 
+    // Switch Case according to civilian types
     @Override
     public void performDuty() {
         switch(this.profession){
