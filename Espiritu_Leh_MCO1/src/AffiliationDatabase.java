@@ -16,8 +16,7 @@ public class AffiliationDatabase {
     }
 
     /* HELPER METHOD
-        Purpose: Builds and registers a new PirateCrew.
-        Returns: The created crew.
+        // Builds and creates a new PirateCrew which then returns it.
     */
     public PirateCrew createPirateCrew(String crewName, String shipName, Pirate captain) {
         PirateCrew crew = new PirateCrew(crewName, shipName, captain);
@@ -26,8 +25,7 @@ public class AffiliationDatabase {
         return crew;
     }
     /* HELPER METHOD
-        Purpose: Builds and registers a new MarineCorps unit.
-        Returns: The created corps.
+        // Builds and creates a new MarineCorpus unit which then returns it.
     */
     public MarineCorps createMarineCorps(String corpsName, String baseLocation, String corpsCommander, int operationalFunds) {
         MarineCorps corps = new MarineCorps(corpsName, baseLocation, corpsCommander, operationalFunds);
@@ -49,18 +47,11 @@ public class AffiliationDatabase {
     }
 
     // Getters
-    public ArrayList<PirateCrew> getPirateCrews() {
-        // Creates and returns a copy of the list
-        return new ArrayList<>(this.pirateCrews);
-    }
-    public ArrayList<MarineCorps> getMarineCorpsUnits() {
-        // Creates and returns a copy of the list
-        return new ArrayList<>(this.marineCorps);
-    }
+    public ArrayList<PirateCrew> getPirateCrews() { return new ArrayList<>(this.pirateCrews); }
+    public ArrayList<MarineCorps> getMarineCorpsUnits() { return new ArrayList<>(this.marineCorps); }
 
     /* HELPER METHOD
-        Purpose: Looks up a pirate crew by ID.
-        Returns: The matching crew, or null if nothing is found.
+        // Looks up a priate crew by its ID and returns the match.
     */
     public PirateCrew findPirateCrewById(int id) {
         for (PirateCrew c : pirateCrews) {
@@ -69,8 +60,7 @@ public class AffiliationDatabase {
         return null;
     }
     /* HELPER METHOD
-        Purpose: Looks up a marine corps unit by ID.
-        Returns: The matching corps, or null if nothing is found.
+        // Looks up a marine corps unit by its ID and returns the match.
     */
     public MarineCorps findMarineCorpsById(int id) {
         for (MarineCorps m : marineCorps) {
