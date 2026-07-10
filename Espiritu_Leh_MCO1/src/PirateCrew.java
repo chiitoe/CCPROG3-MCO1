@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 
+// Module 2 - Pirate Crew Class: Pirate Recruitment
 public class PirateCrew {
 
+    // Attributes
     private static int autoID = 1;   // Same auto-ID as Character
     private final int crewID;
     private String crewName;
@@ -9,12 +11,17 @@ public class PirateCrew {
     private Pirate captain;
     private ArrayList<Pirate> crewMembers;
 
+
+    /* CONSTRUCTOR
+        Purpose: Creates a new crew with a generated ID specific to it.
+        @ crewName, shipName, captainName: fall back to defaults if null/blank.
+    */
     public PirateCrew(String crewName, String shipName, Pirate captain){
         this.crewID = autoID++;
 
         this.crewName = (crewName != null && !crewName.isBlank()) ? crewName : "Unnamed crew";
         this.shipName = (shipName != null && !shipName.isBlank()) ? shipName : "Unnamed Ship";
-        this.captain = captain; // a crew cannot be created without a captain -- no validity check implemented yet
+        this.captain = captain; // A crew cannot be created without a captain
 
         this.crewMembers = new ArrayList<>();
     }
@@ -27,16 +34,16 @@ public class PirateCrew {
         if (shipName != null && !shipName.isBlank()) this.shipName = shipName;
     }
 
-    // returns true if successful, false otherwise
+    // Returns true if successful, false otherwise
     public boolean setCaptain(Pirate captain) {
         if (captain != null && captain.getPirateCrew() == this){
-            // demotes the current captain if there is one
+            // Demotes the current captain if there is one
             if (this.captain != null){this.captain.toggleCaptain(false);}
 
-            // promotes the new captain
+            // Promotes the new captain
             captain.toggleCaptain(true);
 
-            // sets new captain in this object
+            // Sets new captain in this object
             this.captain = captain;
             return true;
         }
@@ -48,11 +55,15 @@ public class PirateCrew {
     public String getShipName() { return shipName; }
     public Pirate getCaptain() { return captain; }
     public ArrayList<Pirate> getCrewMembers() {
-        // creates and returns a copy of the list for data integrity
+        // Creates and returns a copy of the list for data integrity
         return new ArrayList<>(this.crewMembers);
     }
 
-    // Adding and removing members
+     /* HELPER METHOD
+        Purpose: Recruits a new pirate into this crew.
+        Returns: True if successful, false if not.
+        @ pirate: pirate to recruit; rejected if null or already in a crew.
+    */
     public boolean recruitMember(Pirate pirate){
         if (pirate == null) return false;
         if (pirate.getPirateCrew() != null) {
@@ -63,6 +74,11 @@ public class PirateCrew {
         pirate.assignCrew(this);
         return true;
     }
+    /* HELPER METHOD
+        Purpose: Removes a pirate from this crew.
+        Returns: True if successful, false if not.
+        @ pirate: pirate to remove; clears the name as well.
+    */
     public boolean goodbyeMember(Pirate pirate) {
         if (pirate == null || !crewMembers.contains(pirate)) return false;
         crewMembers.remove(pirate);
@@ -70,7 +86,10 @@ public class PirateCrew {
         return true;
     }
 
-    // Total crew members bounty; those who are still free
+    /* HELPER METHOD
+        Purpose: Calculation for the total bounty of the crew.
+        Returns: Sum of bounties of members with a FREE status. 
+    */
     public int getTotalBounty(){
         int total = 0;
         for (Pirate pirate : crewMembers){
@@ -89,6 +108,10 @@ public class PirateCrew {
         for (Pirate pirate : crewMembers){ pirate.displayProfile(); }
     }
 
+    /* HELPER METHOD
+        Purpose: Displays the information of the crews.
+        Returns: Summary of the crew's group attributes.
+    */
     public void displayPirateInfo() {
         System.out.println("=== Pirate Crew: " + crewName + " ===");
         System.out.println("Crew ID       : " + crewID);
