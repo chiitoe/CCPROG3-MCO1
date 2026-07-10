@@ -50,9 +50,7 @@ public class MarineCorps {
     }
 
     /* HELPER METHOD
-        Purpose: Recruits a new marine into this corps.
-        Returns: True if successful, false if not.
-        @ marine: marine to recruit; rejected if null or already in a corps.
+        // Recruiting a marine into the corps, returns if blank or is already in. 
     */
     public boolean recruitMarine(Marine marine){
         if (marine == null) return false;
@@ -65,9 +63,7 @@ public class MarineCorps {
         return true;
     }
     /* HELPER METHOD
-        Purpose: Removes an existing member from this corps.
-        Returns: True if successful, false if not.
-        @ marine: marine to discharge; also clears their corps back-reference.
+        // Removes a member from the corps, which also clears their data / reference.
     */ 
     public boolean goodbyeMember(Marine marine) {
         if (marine == null || !members.contains(marine)) return false;
@@ -76,6 +72,7 @@ public class MarineCorps {
         return true;
     }
 
+    // Viewing the number of members in a marine corps.
     public void viewMembers() {
         System.out.println("Members of " + corpsName + ":");
         if (members.isEmpty()) {
@@ -86,9 +83,9 @@ public class MarineCorps {
             marine.displayProfile();
         }
     }
+    
     /* HELPER METHOD
-        Purpose: Displays the information of the corps.
-        Returns: Summary of the marine corps' group attributes.
+        // Displays the information of the corps and the summary of the marine corps' group attributes.
     */
     public void displayMarineInfo() {
         System.out.println("=== Marine Corps: " + corpsName + " ===");
