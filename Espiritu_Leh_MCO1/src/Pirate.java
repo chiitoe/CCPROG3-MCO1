@@ -7,9 +7,9 @@ public class Pirate extends Character { // Pirate Class derived from Character C
     private PirateCrew pirateCrew;
 
     /* CONSTRUCTOR
-        Purpose: Creates a civilian.
-        @ profession: Becomes "Unemployed" if null/blank.
-        @ residence: Becomes "Homeless" if null/blank.
+        Purpose: Creates a pirate.
+        @ bounty: Value of the bounty of the pirate.
+        @ piraterole: Assings a pirate role.
     */
     public Pirate(String name, String alias, String origin, int wallet, int bounty, String pirateRole) {
         super(name, alias, origin, wallet);
