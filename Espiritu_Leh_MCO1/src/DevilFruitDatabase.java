@@ -3,12 +3,16 @@ import java.util.ArrayList;
 public class DevilFruitDatabase {
     private final ArrayList<DevilFruit> devilFruits;
 
-    // Constructor
+    /* CONSTRUCTOR
+        Purpose: Sets up empty group lists.
+    */
     public DevilFruitDatabase(){
         devilFruits = new ArrayList<>();
     }
 
-    // Create a fruit
+    /* HELPER METHOD
+        // Creates a new DevilFruit and returns it.
+    */
     public DevilFruit createDevilFruit(String fruitName, Category category, String primaryAbility) {
         DevilFruit fruit = new DevilFruit(fruitName, category, primaryAbility);
         devilFruits.add(fruit);
@@ -24,7 +28,7 @@ public class DevilFruitDatabase {
         }
     }
 
-    // find fruit via unique id number
+    // Find fruit via unique id number
     public DevilFruit findFruitById(int id){
         for (DevilFruit f : devilFruits){
             if (f.getFruitID() == id) return f;
@@ -33,7 +37,7 @@ public class DevilFruitDatabase {
     }
 
     public ArrayList<DevilFruit> getDevilFruits(){
-        // creates and returns a copy of the list for data integrity
+        // Creates and returns a copy of the list for data integrity
         return new ArrayList<>(this.devilFruits);
     }
 }
