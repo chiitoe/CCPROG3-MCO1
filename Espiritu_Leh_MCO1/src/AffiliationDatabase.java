@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-// Module 2 - This manages every Pirate Crew or Marine Corp. 
+// This manages every Pirate Crew or Marine Corp. 
 public class AffiliationDatabase {
 
     // Attributes
