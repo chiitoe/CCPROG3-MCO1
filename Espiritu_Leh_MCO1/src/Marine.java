@@ -24,7 +24,7 @@ public class Marine extends Character { // Marine class derived from Character c
     }
 
     /* HELPER METHOD
-        Purpose: Rank promotion for the marine corp
+        Purpose: Rank promotion for the marine
         Returns: True if successful, false if not
     */
     public boolean promoteRank(){
