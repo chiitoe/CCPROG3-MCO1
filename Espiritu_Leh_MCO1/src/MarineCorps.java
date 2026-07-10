@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+// Module 2 - Marine Corp Class: Member Recruitment
 public class MarineCorps {
 
     private static int autoID = 1;
@@ -10,6 +11,11 @@ public class MarineCorps {
     private int opFunds;
     private ArrayList<Marine> members;
 
+     /* CONSTRUCTOR
+        Purpose: Creates a new corps with a specific ID.
+        @ corpsName, baseLocation, corpsCommander: fall back to defaults if null/blank.
+        @ operationalFunds: falls back to 0 if negative.
+    */
     public MarineCorps(String corpsName, String baseLocation, String corpsCommander, int opFunds){
         this.corpsID = autoID++;
 
@@ -43,7 +49,11 @@ public class MarineCorps {
         return new ArrayList<>(this.members);
     }
 
-    // Adding and removing members
+    /* HELPER METHOD
+        Purpose: Recruits a new marine into this corps.
+        Returns: True if successful, false if not.
+        @ marine: marine to recruit; rejected if null or already in a corps.
+    */
     public boolean recruitMarine(Marine marine){
         if (marine == null) return false;
         if (marine.getMarineCorps() != null) {
@@ -54,6 +64,11 @@ public class MarineCorps {
         marine.assignCorps(this);
         return true;
     }
+    /* HELPER METHOD
+        Purpose: Removes an existing member from this corps.
+        Returns: True if successful, false if not.
+        @ marine: marine to discharge; also clears their corps back-reference.
+    */ 
     public boolean goodbyeMember(Marine marine) {
         if (marine == null || !members.contains(marine)) return false;
         members.remove(marine);
@@ -71,7 +86,10 @@ public class MarineCorps {
             marine.displayProfile();
         }
     }
-
+    /* HELPER METHOD
+        Purpose: Displays the information of the corps.
+        Returns: Summary of the marine corps' group attributes.
+    */
     public void displayMarineInfo() {
         System.out.println("=== Marine Corps: " + corpsName + " ===");
         System.out.println("Corps ID         : " + corpsID);
