@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class DevilFruitDatabase {
     private final ArrayList<DevilFruit> devilFruits;
-
+    
     /* CONSTRUCTOR
         Purpose: Sets up empty group lists.
     */
