@@ -18,11 +18,9 @@ public class PirateCrew {
     */
     public PirateCrew(String crewName, String shipName, Pirate captain){
         this.crewID = autoID++;
-
         this.crewName = (crewName != null && !crewName.isBlank()) ? crewName : "Unnamed crew";
         this.shipName = (shipName != null && !shipName.isBlank()) ? shipName : "Unnamed Ship";
         this.captain = captain; // A crew cannot be created without a captain
-
         this.crewMembers = new ArrayList<>();
     }
 
@@ -33,8 +31,6 @@ public class PirateCrew {
     public void setShipName(String shipName) {
         if (shipName != null && !shipName.isBlank()) this.shipName = shipName;
     }
-
-    // Returns true if successful, false otherwise
     public boolean setCaptain(Pirate captain) {
         if (captain != null && captain.getPirateCrew() == this){
             // Demotes the current captain if there is one
@@ -60,9 +56,7 @@ public class PirateCrew {
     }
 
      /* HELPER METHOD
-        Purpose: Recruits a new pirate into this crew.
-        Returns: True if successful, false if not.
-        @ pirate: pirate to recruit; rejected if null or already in a crew.
+        // Recruits a new pirate into the crew, rejected if alread in a crew
     */
     public boolean recruitMember(Pirate pirate){
         if (pirate == null) return false;
@@ -75,9 +69,7 @@ public class PirateCrew {
         return true;
     }
     /* HELPER METHOD
-        Purpose: Removes a pirate from this crew.
-        Returns: True if successful, false if not.
-        @ pirate: pirate to remove; clears the name as well.
+        // Removes a pirate from the crew
     */
     public boolean goodbyeMember(Pirate pirate) {
         if (pirate == null || !crewMembers.contains(pirate)) return false;
@@ -87,8 +79,8 @@ public class PirateCrew {
     }
 
     /* HELPER METHOD
-        Purpose: Calculation for the total bounty of the crew.
-        Returns: Sum of bounties of members with a FREE status. 
+        // Calculating the total bounty of the crew and returns the sum 
+        // of the bounties of members that are FREE
     */
     public int getTotalBounty(){
         int total = 0;
@@ -109,8 +101,7 @@ public class PirateCrew {
     }
 
     /* HELPER METHOD
-        Purpose: Displays the information of the crews.
-        Returns: Summary of the crew's group attributes.
+        // Displays the summary of the information of the crews. 
     */
     public void displayPirateInfo() {
         System.out.println("=== Pirate Crew: " + crewName + " ===");
