@@ -15,17 +15,12 @@ public class Marine extends Character { // Marine class derived from Character c
         // Marines are created with no affiliations to a corps
     }
 
-    // getters
-    public MarineRank getMarineRank(){
-        return this.marineRank;
-    }
-    public MarineCorps getMarineCorps(){
-        return this.marineCorps;
-    }
+    // Getters
+    public MarineRank getMarineRank(){ return this.marineRank; }
+    public MarineCorps getMarineCorps(){ return this.marineCorps; }
 
     /* HELPER METHOD
-        Purpose: Rank promotion for the marine
-        Returns: True if successful, false if not
+        // Rank Promotion, returns false if unsuccessful.
     */
     public boolean promoteRank(){
         MarineRank[] allRanks = MarineRank.values();
@@ -40,9 +35,7 @@ public class Marine extends Character { // Marine class derived from Character c
     }
 
     /* HELPER METHOD
-        Purpose: Assigns you as member.
-        Returns: True if successful, false if not
-        @ marineCorps: Not assigned a member if null
+        // Assigns you as a member of a marine corps unit.
     */
     public boolean assignCorps(MarineCorps marineCorps){
 
