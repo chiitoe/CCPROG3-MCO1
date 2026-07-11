@@ -22,7 +22,7 @@ public class MarineCorps {
         this.corpsName = (corpsName != null && !corpsName.isBlank()) ? corpsName : "Unnamed corps";
         this.baseLocation = (baseLocation != null && !baseLocation.isBlank()) ? baseLocation : "Unknown Base Location";
         this.corpsCommander = (corpsCommander != null && !corpsCommander.isBlank()) ? corpsCommander : "Unknown Commander";
-
+        this.opFunds = (opFunds >= 0) ? opFunds : 0;
         this.members = new ArrayList<>();
     }
 
