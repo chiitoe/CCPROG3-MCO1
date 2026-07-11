@@ -23,6 +23,7 @@ public class MarineCorps {
         this.baseLocation = (baseLocation != null && !baseLocation.isBlank()) ? baseLocation : "Unknown Base Location";
         this.corpsCommander = (corpsCommander != null && !corpsCommander.isBlank()) ? corpsCommander : "Unknown Commander";
         this.opFunds = (opFunds >= 0) ? opFunds : 0;
+        
         this.members = new ArrayList<>();
     }
 
@@ -44,6 +45,7 @@ public class MarineCorps {
     public String getCorpsName() { return corpsName; }
     public String getBaseLocation() { return baseLocation; }
     public String getCorpsCommander() { return corpsCommander; }
+    public int getOpFunds() { return opFunds; }
     public ArrayList<Marine> getMembers() {
         // creates and returns a copy of the list for data integrity
         return new ArrayList<>(this.members);
