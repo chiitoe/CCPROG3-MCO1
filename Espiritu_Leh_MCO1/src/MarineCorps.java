@@ -1,3 +1,7 @@
+/** MarineCorps
+ * Purpose: manages all marine corps and their marines
+ */
+
 import java.util.ArrayList;
 
 // Module 2 - Marine Corp Class: Member Recruitment

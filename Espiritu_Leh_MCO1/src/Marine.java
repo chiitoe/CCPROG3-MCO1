@@ -1,13 +1,20 @@
+/** Marine
+ * Purpose: Inherits from Character, hold all information for marine characters
+ */
 public class Marine extends Character { // Marine class derived from Character class
 
     // Child Attributes
-    private MarineRank marineRank;
-    private MarineCorps marineCorps;
+    private MarineRank marineRank;  /** a marine's rank among its corps */
+    private MarineCorps marineCorps;    /** the corps a marine is affiliated with */
 
-    /* CONSTRUCTOR
-        Purpose: Creates a member of the Marine Corp.
-        @ marineRank: Assigns the rank.
-    */
+    /** CONSTRUCTOR
+     * Purpose: Creates a Marine.
+     * @param name fall back to "Unknown" if null/blank.
+     * @param alias fall back to "Unknown" if null/blank.
+     * @param origin fall back to "Unknown" if null/blank.
+     * @param wallet falls back to 0 if negative value.
+     * @param marineRank falls back to ENSIGN if null
+     */
     public Marine(String name, String alias, String origin, int wallet, MarineRank marineRank) {
         super(name, alias, origin, wallet);
 
@@ -15,13 +22,15 @@ public class Marine extends Character { // Marine class derived from Character c
         // Marines are created with no affiliations to a corps
     }
 
-    // Getters
+    /** Getters */
     public MarineRank getMarineRank(){ return this.marineRank; }
     public MarineCorps getMarineCorps(){ return this.marineCorps; }
 
-    /* HELPER METHOD
-        // Rank Promotion, returns false if unsuccessful.
-    */
+    /** Helpers */
+
+    /** Purpose: promotes a marine to the next rank
+     * @return true if successful, false otherwise
+     * */
     public boolean promoteRank(){
         MarineRank[] allRanks = MarineRank.values();
         int index = this.marineRank.ordinal();      // Holds the index of the current rank
@@ -34,9 +43,10 @@ public class Marine extends Character { // Marine class derived from Character c
         return false;
     }
 
-    /* HELPER METHOD
-        // Assigns you as a member of a marine corps unit.
-    */
+    /** Purpose: assigns a marine to a corps
+     * @param marineCorps rejected if null
+     * @return true if successful, false otherwise
+     * */
     public boolean assignCorps(MarineCorps marineCorps){
 
         // only runs if the input is valid
@@ -47,11 +57,12 @@ public class Marine extends Character { // Marine class derived from Character c
         return false;
     }
 
-    // Basically removes you as a member
+    /** Purpose: de-affiliates a marine from its corps */
     public void removeCorps(){
         this.marineCorps = null;
     }
 
+    /** Purpose: unique flavour text for marine-related duties */
     @Override
     public void performDuty() {
         switch (this.marineRank){

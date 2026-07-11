@@ -1,3 +1,7 @@
+/** PirateCrew
+ * Purpose: manages all pirate crews and their members
+ */
+
 import java.util.ArrayList;
 
 // Module 2 - Pirate Crew Class: Pirate Recruitment

@@ -1,6 +1,9 @@
+/** AffiliationDatabase
+ * Purpose: manages all marine corps and pirate crews
+ */
+
 import java.util.ArrayList;
 
-// This manages every Pirate Crew or Marine Corp. 
 public class AffiliationDatabase {
 
     // Attributes
