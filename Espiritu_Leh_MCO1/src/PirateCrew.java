@@ -112,4 +112,3 @@ public class PirateCrew {
         System.out.println("Total Bounty  : " + getTotalBounty() + " Berries");
     }
 }
-
