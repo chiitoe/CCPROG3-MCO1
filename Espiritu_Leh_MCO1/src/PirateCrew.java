@@ -103,7 +103,7 @@ public class PirateCrew {
     /* HELPER METHOD
         // Displays the summary of the information of the crews. 
     */
-    public void displayPirateInfo() {
+    public void displayCrewInfo() {
         System.out.println("=== Pirate Crew: " + crewName + " ===");
         System.out.println("Crew ID       : " + crewID);
         System.out.println("Ship's Name   : " + shipName);

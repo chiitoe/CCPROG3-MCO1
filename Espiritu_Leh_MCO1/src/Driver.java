@@ -27,7 +27,7 @@ public class Driver {
         devfrdata.viewAllFruits();
 
         System.out.println();
-        strawHats.displayPirateInfo();
+        strawHats.displayCrewInfo();
         strawHats.viewCrew();
 
         System.out.println();
@@ -40,7 +40,7 @@ public class Driver {
 
         zoro.setStatus(Status.CAPTURED);
         System.out.println("\nAfter Zoro captured:");
-        strawHats.displayPirateInfo();
+        strawHats.displayCrewInfo();
 
         luffy.setStatus(Status.DEAD);
         System.out.println("\nAfter Luffy dies:");

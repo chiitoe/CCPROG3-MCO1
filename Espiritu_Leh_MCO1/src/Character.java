@@ -34,7 +34,7 @@ public abstract class Character {
         System.out.println("Alias           : " + this.alias);
         System.out.println("Origin          : " + this.origin);
         System.out.println("Status          : " + this.status);
-        System.out.println("Devil Fruit     : " + (this.hasDevilFruit() ? this.devilFruitPower:"None"));
+        System.out.println("Devil Fruit     : " + (this.hasDevilFruit() ? this.devilFruitPower.getFruitName():"None"));
         System.out.println("Wallet          : " + this.wallet + " Berries");
     }
 
