@@ -68,7 +68,7 @@ public class CharacterDatabase {
     public void displayAllCharacters() {
         System.out.println("=== Characters ===");
         for (Character c : characters) {
-            System.out.println("- [" + c.getCharacterID() + "] " + c.getName());
+            c.displayProfile();
         }
     }
 
@@ -82,5 +82,10 @@ public class CharacterDatabase {
             }
         }
         return null;
+    }
+
+    public ArrayList<Character> getCharacters(){
+        // Creates and returns a copy of the list for data integrity
+        return new ArrayList<>(this.characters);
     }
 }

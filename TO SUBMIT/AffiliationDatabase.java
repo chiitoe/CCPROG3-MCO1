@@ -1,9 +1,6 @@
-/** AffiliationDatabase
- * Purpose: manages all marine corps and pirate crews
- */
-
 import java.util.ArrayList;
 
+// This manages every Pirate Crew or Marine Corp. 
 public class AffiliationDatabase {
 
     // Attributes
@@ -25,7 +22,6 @@ public class AffiliationDatabase {
         PirateCrew crew = new PirateCrew(crewName, shipName, captain);
         pirateCrews.add(crew);
         System.out.println("Created Pirate Crew: " + crew.getCrewName());
-        System.out.println("Created Pirate Crew: " + crew.getCrewName());
         return crew;
     }
     /* HELPER METHOD
@@ -42,11 +38,11 @@ public class AffiliationDatabase {
     public void viewGroups() {
         System.out.println("=== Pirate Crews ===");
         for (PirateCrew c : pirateCrews) {
-            System.out.println("- [" + c.getCrewID() + "] " + c.getCrewName());
+            c.displayPirateInfo();
         }
         System.out.println("=== Marine Corps Units ===");
         for (MarineCorps m : marineCorps) {
-            System.out.println("- [" + m.getCorpsID() + "] " + m.getCorpsName());
+            m.displayMarineInfo();
         }
     }
 
@@ -63,6 +59,7 @@ public class AffiliationDatabase {
         }
         return null;
     }
+
     /* HELPER METHOD
         // Looks up a marine corps unit by its ID and returns the match.
     */
@@ -73,5 +70,37 @@ public class AffiliationDatabase {
         return null;
     }
 
+    /* HELPER METHOD
+        // Deletes a pirate crew by ID. Clears every member's crew reference
+        // first (and demotes the captain flag) so nothing dangles.
+        // Returns true if successful, false otherwise (ID not found).
+    */
+    public boolean deletePirateCrew(int id) {
+        PirateCrew crew = findPirateCrewById(id);
+        if (crew == null) return false;
+
+        for (Pirate member : crew.getCrewMembers()) {
+            if (member.isCaptain()) member.toggleCaptain(false);
+            member.removeCrew();
+        }
+        pirateCrews.remove(crew);
+        return true;
+    }
+
+    /* HELPER METHOD
+        // Deletes a marine corps unit by ID. Clears every member's corps
+        // reference first so nothing dangles.
+        // Returns true if successful, false otherwise (ID not found).
+    */
+    public boolean deleteMarineCorps(int id) {
+        MarineCorps corps = findMarineCorpsById(id);
+        if (corps == null) return false;
+
+        for (Marine member : corps.getMembers()) {
+            member.removeCorps();
+        }
+        marineCorps.remove(corps);
+        return true;
+    }
 
 }

@@ -24,7 +24,7 @@ public class DevilFruitDatabase {
     public void viewAllFruits() {
         System.out.println("=== Devil Fruits ===");
         for (DevilFruit fruit : devilFruits) {
-            System.out.println("- [" + fruit.getFruitID() + "] " + fruit.getFruitName());
+            fruit.displayFruit();
         }
     }
 
@@ -40,4 +40,16 @@ public class DevilFruitDatabase {
         // Creates and returns a copy of the list for data integrity
         return new ArrayList<>(this.devilFruits);
     }
+
+    public boolean deleteDevilFruit(int id){
+        DevilFruit fruit = findFruitById(id);
+        if (fruit == null) return false;
+
+        if (fruit.getCurrentOwner() != null){
+            fruit.getCurrentOwner().clearDevilFruitPower();
+        }
+        devilFruits.remove(fruit);
+        return true;
+    }
+
 }
