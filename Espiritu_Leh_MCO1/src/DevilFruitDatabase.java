@@ -40,4 +40,16 @@ public class DevilFruitDatabase {
         // Creates and returns a copy of the list for data integrity
         return new ArrayList<>(this.devilFruits);
     }
+
+    public boolean deleteDevilFruit(int id){
+        DevilFruit fruit = findFruitById(id);
+        if (fruit == null) return false;
+ 
+        if (fruit.getCurrentOwner() != null){
+            fruit.getCurrentOwner().clearDevilFruitPower();
+        }
+        devilFruits.remove(fruit);
+        return true;
+    }
+}
 }
