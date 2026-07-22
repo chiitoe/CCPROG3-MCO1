@@ -51,5 +51,5 @@ public class DevilFruitDatabase {
         devilFruits.remove(fruit);
         return true;
     }
-}
+
 }
