@@ -13,8 +13,27 @@ Module 1 - Character Database
 Module 2 - Affiliation Database
 Module 3 - Devil Fruit Database Module
 
-// FOR MCO2
-Module 4 - Bounty System
+// FOR MCO2 !!!!
+
+- MVC Architecture
+- GUI-Based Program
+- Module 4 - Bounty System
+- Complete UML Diagram
+- Revised Modules 1-3 that works with GUI
+- JAVADOC !!
+- BONUS - extra features may be implemented
+
+
+SUGGESTED BUILD ORDER (ctto claude)
+
+1. Design the MVC split for existing classes → update UML
+2. Build Module 4 (Bounty System) as Model classes
+3. Build the Controller layer
+4. Build the GUI (View layer)
+5. Wire everything together
+6. Update Javadoc + test script for anything new
+7. Prepare for the live individual demo
+
 
 RESTRICTIONS AND RULES
 	- no libraries outside of Java21 API
@@ -43,19 +62,12 @@ MCO2 - August 3, 2026 7:30AM
 	- follow the MVC architecture
 	- final system is a gui-based program // console outputs will NOT be checked
 	- completed UML class diagram
-	- additional features may be implemented but they CANNOT contradict the requirement -- reflect these in the UML Diagram
+	- additional features may be implemented but they CANNOT contradict the requirement -- reflect these in the UML Ddiagram
 		
-DELIVERABLES - MCO1
+DELIVERABLES
 	- signed declaration of original work
 	- softcopy of class diagram following UML notations
 	- javadoc-generated documentation for proponent-defined classes with pertinent info
 	- zip w/ source code w/ proper internal documentation
 	- test script -- follow format in appendix B
 	- MCO1 - video demo of the program - voice-over explanation required, 10 mins max
-
-
-REFERENCES:
-
-One Piece Marine Ranks
-https://onepiece.fandom.com/wiki/Marine_Ranks
-	
